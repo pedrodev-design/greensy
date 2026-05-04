@@ -98,7 +98,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   if (!header) return;
 
   // Dark sections that should make header dark
-  const darkSections = ['#services','#ceo','#projects'];
+  const darkSections = ['#ceo','#projects','#services'];
   darkSections.forEach(sel => {
     const el = document.querySelector(sel);
     if (!el) return;
@@ -141,31 +141,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ─── HERO ANIMATION ─────────────────────────────────────────
 function initHeroAnim() {
+  const hero = document.querySelector('.hero');
+  if (hero) hero.classList.add('ready');
+
   const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-  // Video container reveal from bottom clip
-  tl.fromTo('#hero-media',
-    { clipPath: 'inset(100% 4% 0% 4% round 48px)' },
-    { clipPath: 'inset(0% 1.5% 0% 1.5% round 28px)', duration: 1.6, ease: 'expo.out' }
-  , 0);
-
   // Eyebrow
-  tl.to('#hero-eye', { opacity: 1, y: 0, duration: 1 }, 0.4);
+  tl.fromTo('#hero-eye', { y: 20, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 0.4);
 
   // Lines stagger
   tl.to('.hero__heading .reveal-line span', {
-    y: 0, opacity: 1, duration: 1.2,
-    stagger: 0.12, ease: 'power4.out'
+    y: 0, opacity: 1, duration: 1.4,
+    stagger: 0.15, ease: 'power4.out'
   }, 0.6);
 
-  // CTAs
-  tl.to('#hero-ctas', { opacity: 1, duration: 0.9 }, 1.2);
+  // Desc + Actions
+  tl.fromTo('#hero-desc', { y: 20, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 1.2);
+  tl.fromTo('#hero-ctas', { y: 20, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 1.4);
 
-  // Stats
-  tl.to('#hero-stats', { opacity: 1, duration: 0.9 }, 1.4);
-
-  // Scroll hint
-  tl.to('#scroll-hint', { opacity: 1, duration: 0.6 }, 1.7);
+  // Stats bar
+  tl.fromTo('#hero-stats', { y: 30, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 1.6);
 }
 
 
@@ -203,96 +198,40 @@ gsap.to('#bigcta-bg', {
   yPercent: -15,
   scrollTrigger: { trigger: '.bigcta', start: 'top bottom', end: 'bottom top', scrub: true }
 });
+// services parallax on bento card images
+gsap.utils.toArray('.svc-card__media img').forEach(img => {
+  gsap.to(img, {
+    yPercent: 10,
+    scrollTrigger: { trigger: img.closest('.svc-card'), start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+  });
+});
 
 
-// ─── HORIZONTAL SCROLL ──────────────────────────────────────
+// ─── PORTFOLIO PANEL PARALLAX ────────────────────────────────
 (function() {
-  const track    = document.getElementById('horiz-track');
-  const pinEl    = document.getElementById('horiz-pin');
-  const progressBar = document.getElementById('horiz-progress');
-  if (!track || !pinEl) return;
+  const dummyCheck = document.getElementById('horiz-track');
+  if (dummyCheck) return; // old section still exists, skip
 
-  const panels   = gsap.utils.toArray('.hpanel');
-  const totalW   = () => track.scrollWidth - window.innerWidth;
-
-  let st;
-
-  function setup() {
-    if (st) { st.kill(); }
-
-    st = gsap.to(track, {
-      x: () => -totalW(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: pinEl,
-        pin: true,
-        scrub: 0.6,          // lower = snappier/faster feel
-        start: 'top top',
-        end: () => '+=' + totalW() * 1.4,
-        invalidateOnRefresh: true,
-        onUpdate: self => {
-          if (progressBar) progressBar.style.width = (self.progress * 100) + '%';
-        }
-      }
-    });
-
-    // Image parallax inside cards
-    panels.forEach(panel => {
-      const media = panel.querySelector('img, video');
-      if (!media || panel.classList.contains('hpanel--intro')) return;
-      gsap.fromTo(media,
-        { x: -50 },
-        {
-          x: 50, ease: 'none',
-          scrollTrigger: {
-            trigger: panel,
-            containerAnimation: st,
-            start: 'left right',
-            end: 'right left',
-            scrub: true,
-          }
-        }
-      );
-    });
-  }
-
-  setup();
-  window.addEventListener('resize', () => { ScrollTrigger.refresh(); setup(); });
 })();
 
+// Subtle parallax on portfolio cinematic image
+gsap.to('.pf-cinematic img', {
+  yPercent: 12,
+  ease: 'none',
+  scrollTrigger: { trigger: '.pf-cinematic', start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+});
 
-// ─── BEFORE & AFTER ─────────────────────────────────────────
+
+// ─── MOSAIC HOVER ENHANCE ────────────────────────────────────
 (function() {
-  const wrap   = document.getElementById('ba-wrap');
-  const before = document.getElementById('ba-before');
-  const handle = document.getElementById('ba-handle');
-  if (!wrap || !before || !handle) return;
-
-  let dragging = false;
-
-  function move(x) {
-    const r = wrap.getBoundingClientRect();
-    let p = Math.max(5, Math.min(95, ((x - r.left) / r.width) * 100));
-    before.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
-    handle.style.left     = p + '%';
-  }
-
-  handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
-  wrap.addEventListener('mousedown',    e => { dragging = true; move(e.clientX); });
-  document.addEventListener('mousemove',e => { if (dragging) move(e.clientX); });
-  document.addEventListener('mouseup',  () => dragging = false);
-  wrap.addEventListener('touchstart',   e => { dragging = true; move(e.touches[0].clientX); }, { passive: true });
-  document.addEventListener('touchmove',e => { if (dragging) move(e.touches[0].clientX); }, { passive: true });
-  document.addEventListener('touchend', () => dragging = false);
-
-  // Animate in
-  let pct = 5;
-  new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) return;
-    (function go() {
-      if (pct < 50) { pct += 2; move(wrap.getBoundingClientRect().left + wrap.offsetWidth * (pct / 100)); requestAnimationFrame(go); }
-    })();
-  }, { threshold: 0.4 }).observe(wrap);
+  document.querySelectorAll('.pf-mosaic__item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      gsap.to(item.querySelector('img'), { scale: 1.08, duration: 0.8, ease: 'power2.out' });
+    });
+    item.addEventListener('mouseleave', () => {
+      gsap.to(item.querySelector('img'), { scale: 1, duration: 0.8, ease: 'power2.out' });
+    });
+  });
 })();
 
 
@@ -338,5 +277,24 @@ document.getElementById('logo-home')?.addEventListener('click', e => {
   e.preventDefault();
   lenis.scrollTo(0, { duration: 1.8 });
 });
+
+
+// ─── PORTFOLIO CAROUSEL ──────────────────────────────────────
+(function() {
+  const container = document.getElementById('port-carousel');
+  const prevBtn = document.getElementById('c-prev');
+  const nextBtn = document.getElementById('c-next');
+  if (!container || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = 320 + 24; // pcar-item width + gap
+
+  prevBtn.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+})();
 
 console.log('%c🌿 Greensy Paisagismo — Ultra Premium', 'font-size:13px;color:#B8965A;font-weight:500');
