@@ -61,14 +61,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 
-// ─── CUSTOM CURSOR ──────────────────────────────────────────
+// ─── CUSTOM CURSOR (desktop only) ──────────────────────────
 (function() {
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
 
+  // Desabilitar em dispositivos touch
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    cursor.style.display = 'none';
+    return;
+  }
+
   const dot  = cursor.querySelector('.cursor__dot');
   const ring = cursor.querySelector('.cursor__ring');
   let mx = -100, my = -100, rx = -100, ry = -100;
+  let rafId;
 
   window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 
@@ -77,7 +84,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     ry += (my - ry) * 0.10;
     if (dot)  { dot.style.left  = mx + 'px'; dot.style.top  = my + 'px'; }
     if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
   })();
 
   // Enlarge on hoverable elements
@@ -181,30 +188,34 @@ function initHeroAnim() {
 })();
 
 
-// ─── PARALLAX ───────────────────────────────────────────────
-gsap.to('#about-pill', {
-  y: -80,
-  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 1.5 }
-});
-gsap.to('#about-float', {
-  y: -50,
-  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 2 }
-});
-gsap.to('.about__arch img', {
-  y: -60,
-  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 1 }
-});
-gsap.to('#bigcta-bg', {
-  yPercent: -15,
-  scrollTrigger: { trigger: '.bigcta', start: 'top bottom', end: 'bottom top', scrub: true }
-});
-// services parallax on bento card images
-gsap.utils.toArray('.svc-card__media img').forEach(img => {
-  gsap.to(img, {
-    yPercent: 10,
-    scrollTrigger: { trigger: img.closest('.svc-card'), start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+// ─── PARALLAX (skip se usuário prefere less motion) ────────
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reducedMotion) {
+  gsap.to('#about-pill', {
+    y: -80,
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 1.5 }
   });
-});
+  gsap.to('#about-float', {
+    y: -50,
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 2 }
+  });
+  gsap.to('.about__arch img', {
+    y: -60,
+    scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 1 }
+  });
+  gsap.to('#bigcta-bg', {
+    yPercent: -15,
+    scrollTrigger: { trigger: '.bigcta', start: 'top bottom', end: 'bottom top', scrub: true }
+  });
+  // services parallax on bento card images
+  gsap.utils.toArray('.svc-card__media img').forEach(img => {
+    gsap.to(img, {
+      yPercent: 10,
+      scrollTrigger: { trigger: img.closest('.svc-card'), start: 'top bottom', end: 'bottom top', scrub: 1.5 }
+    });
+  });
+}
 
 
 // ─── PORTFOLIO PANEL PARALLAX ────────────────────────────────

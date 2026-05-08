@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+/* Fonts carregadas via <link> no HTML para melhor performance */
 
 /* ── TOKENS ── */
 :root {
@@ -42,10 +42,33 @@ body{
   color:var(--text);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
+  text-rendering: optimizeSpeed;
 }
 body.is-loading{overflow:hidden}
 img,video{max-width:100%;display:block;object-fit:cover}
+img{height:auto}
 a{text-decoration:none;color:inherit}
+
+/* ── PERFORMANCE ── */
+/* will-change apenas em elementos que serão animados pelo GSAP */
+.hero__video,
+#about-pill,
+#about-float,
+.about__arch img,
+#bigcta-bg,
+.pf-cinematic img { will-change: transform; }
+
+/* Seções abaixo do fold: renderizadas apenas quando próximas */
+.about,
+.services,
+.inspire-gallery,
+.care,
+.portfolio,
+.transform,
+.ceo,
+.testimonials,
+.bigcta,
+.footer { content-visibility: auto; contain-intrinsic-size: 0 800px; }
 
 /* ── LOADER ── */
 .loader{
@@ -434,22 +457,78 @@ h2{
 .hero__left { display: contents; }
 .hero__right { display: contents; }
 
-/* ticker */
-.ticker {
-  background: var(--forest); padding: 1.1rem 0;
-  overflow: hidden; white-space: nowrap;
+/* ── CLIENTS LOGO STRIP ── */
+.clients-strip {
+  background: var(--forest);
+  padding: 1.8rem 0;
+  overflow: hidden;
   border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 }
-.ticker__track {
-  display: inline-flex; gap: 2rem;
-  animation: ticker 28s linear infinite;
+
+.clients-strip__label {
+  flex-shrink: 0;
+  padding: 0 2.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(242,239,233,0.25);
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.08);
 }
-.ticker__track span {
-  font-size: 0.7rem; font-weight: 400; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(242,239,233,0.4);
+
+.clients-strip__track-wrap {
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
-.ticker__track .dot { color: var(--gold); font-size: 0.5rem; }
-@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+.clients-strip__track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: clients-marquee 20s linear infinite;
+  flex-shrink: 0;
+}
+
+.clients-strip__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.clients-strip__logo img {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.35;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  object-fit: contain;
+}
+
+.clients-strip__logo:hover img {
+  opacity: 0.75;
+  filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);
+}
+
+.clients-strip__sep {
+  color: var(--gold);
+  font-size: 0.45rem;
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+@keyframes clients-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
 
 
 
