@@ -459,42 +459,41 @@ h2{
 
 /* ── CLIENTS LOGO STRIP ── */
 .clients-strip {
-  background: var(--forest);
-  padding: 1.8rem 0;
+  background: #fff;
+  padding: 4rem 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
+  /* Bordas que conectam visualmente com as seções adjacentes */
+  border-top: 3px solid var(--forest);
+  border-bottom: 3px solid var(--forest);
 }
 
+/* Faixa de título discreta à esquerda, fora do marquee */
 .clients-strip__label {
-  flex-shrink: 0;
-  padding: 0 2.5rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
+  text-align: center;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(242,239,233,0.25);
-  white-space: nowrap;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  color: rgba(28,33,25,0.35);
+  margin-bottom: 2.5rem;
+  display: block;
+  width: 100%;
 }
 
 .clients-strip__track-wrap {
-  display: flex;
   overflow: hidden;
-  flex: 1;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .clients-strip__track {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  animation: clients-marquee 20s linear infinite;
-  flex-shrink: 0;
+  gap: 6rem;
+  width: max-content;           /* se auto-dimensiona com o conteúdo */
+  will-change: transform;
+  animation: clients-marquee 18s linear infinite;
 }
 
 .clients-strip__logo {
@@ -505,29 +504,22 @@ h2{
 }
 
 .clients-strip__logo img {
-  height: 28px;
+  height: 36px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.35;
-  transition: opacity 0.4s ease, filter 0.4s ease;
+  max-width: 140px;
   object-fit: contain;
+  filter: none;
+  opacity: 1;
+  display: block;
 }
 
-.clients-strip__logo:hover img {
-  opacity: 0.75;
-  filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);
-}
+.clients-strip__sep { display: none; }
 
-.clients-strip__sep {
-  color: var(--gold);
-  font-size: 0.45rem;
-  opacity: 0.4;
-  flex-shrink: 0;
-}
-
+/* Anima exatamente -50%: quando chega na metade (as cópias),
+   o frame é idêntico ao início — loop invisível e perfeito */
 @keyframes clients-marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-100%); }
+  to   { transform: translateX(-50%); }
 }
 
 
