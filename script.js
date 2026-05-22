@@ -61,42 +61,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 
-// ─── CUSTOM CURSOR (desktop only) ──────────────────────────
-(function() {
-  const cursor = document.getElementById('cursor');
-  if (!cursor) return;
 
-  // Desabilitar em dispositivos touch
-  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-    cursor.style.display = 'none';
-    return;
-  }
-
-  const dot  = cursor.querySelector('.cursor__dot');
-  const ring = cursor.querySelector('.cursor__ring');
-  let mx = -100, my = -100, rx = -100, ry = -100;
-  let rafId;
-
-  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-  (function animate() {
-    rx += (mx - rx) * 0.10;
-    ry += (my - ry) * 0.10;
-    if (dot)  { dot.style.left  = mx + 'px'; dot.style.top  = my + 'px'; }
-    if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-    rafId = requestAnimationFrame(animate);
-  })();
-
-  // Enlarge on hoverable elements
-  document.querySelectorAll('a, button, .magnetic, .proj-card, .bento-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      if (ring) { ring.style.width = '70px'; ring.style.height = '70px'; ring.style.borderColor = 'rgba(184,150,90,.8)'; }
-    });
-    el.addEventListener('mouseleave', () => {
-      if (ring) { ring.style.width = '40px'; ring.style.height = '40px'; ring.style.borderColor = 'rgba(184,150,90,.5)'; }
-    });
-  });
-})();
 
 
 // ─── HEADER ─────────────────────────────────────────────────
