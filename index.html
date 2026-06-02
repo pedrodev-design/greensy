@@ -1,785 +1,1278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greensy Paisagismo — Arte que Vive</title>
-  <meta name="description" content="Greensy Paisagismo. Arquitetura viva de alto padrão assinada por Antônio Costa." />
-  
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greensy Paisagismo — Arte que Vive</title>
+    <meta
+      name="description"
+      content="Greensy Paisagismo. Arquitetura viva de alto padrão assinada por Antônio Costa."
+    />
 
-  <!-- DNS Prefetch para CDNs -->
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://unpkg.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
 
-  <!-- Preload critical assets -->
-  <link rel="preload" href="img/hero.jpg" as="image" fetchpriority="high" />
-  <link rel="preload" href="styles.css" as="style" />
+    <!-- DNS Prefetch para CDNs -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Fonts — display=swap evita FOIT -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Preload critical assets -->
+    <link rel="preload" href="img/hero.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="styles.css" as="style" />
 
-  <!-- Font Awesome — apenas solid + brands (remove regular e light não usados) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css" crossorigin="anonymous" />
+    <!-- Fonts — display=swap evita FOIT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body class="is-loading">
+    <!-- Font Awesome — apenas solid + brands (remove regular e light não usados) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css"
+      crossorigin="anonymous"
+    />
 
-<!-- ====================================================
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="is-loading">
+    <!-- ====================================================
      LOADER
 ===================================================== -->
-<div class="loader" id="loader">
-  <div class="loader__inner">
-    <p class="loader__label">Greensy</p>
-    <div class="loader__bar"><div class="loader__fill" id="loader-fill"></div></div>
-    <p class="loader__pct" id="loader-pct">0%</p>
-  </div>
-  <div class="loader__panel loader__panel--top"></div>
-  <div class="loader__panel loader__panel--bot"></div>
-</div>
+    <div class="loader" id="loader">
+      <div class="loader__inner">
+        <p class="loader__label">Greensy</p>
+        <div class="loader__bar">
+          <div class="loader__fill" id="loader-fill"></div>
+        </div>
+        <p class="loader__pct" id="loader-pct">0%</p>
+      </div>
+      <div class="loader__panel loader__panel--top"></div>
+      <div class="loader__panel loader__panel--bot"></div>
+    </div>
 
-
-
-<!-- ====================================================
+    <!-- ====================================================
      HEADER
 ===================================================== -->
-<header class="header" id="header">
-  <div class="header__inner">
-    <a class="header__logo" href="#" id="logo-home">
-      
-      <span>Greensy</span>
-    </a>
+    <header class="header" id="header">
+      <div class="header__inner">
+        <a class="header__logo" href="#" id="logo-home">
+          <span>Greensy</span>
+        </a>
 
-    <nav class="header__nav" id="header-nav">
-      <a href="#about"    class="nav-item">Sobre</a>
-      <a href="#services" class="nav-item">Expertise</a>
-      <a href="#projects" class="nav-item">Portfólio</a>
-      <a href="#ceo"      class="nav-item">O Fundador</a>
-      <a href="#contact"  class="nav-item">Contato</a>
-    </nav>
+        <nav class="header__nav" id="header-nav">
+          <a href="#about" class="nav-item">Sobre</a>
+          <a href="#services" class="nav-item">Expertise</a>
+          <a href="#projects" class="nav-item">Portfólio</a>
+          <a href="#ceo" class="nav-item">O Fundador</a>
+          <a href="#contact" class="nav-item">Contato</a>
+        </nav>
 
-    <div class="header__right">
-      <a href="https://api.whatsapp.com/send/?phone=5511961880078" class="header__btn magnetic">
-        <span>Iniciar Projeto</span>
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span>
-      </button>
+        <div class="header__right">
+          <a
+            href="https://api.whatsapp.com/send/?phone=5511961880078"
+            class="header__btn magnetic"
+          >
+            <span>Iniciar Projeto</span>
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <button class="burger" id="burger" aria-label="Menu">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mob-menu" id="mob-menu">
+      <nav class="mob-menu__nav">
+        <a href="#about" class="mob-link">Sobre</a>
+        <a href="#services" class="mob-link">Expertise</a>
+        <a href="#projects" class="mob-link">Portfólio</a>
+        <a href="#ceo" class="mob-link">O Fundador</a>
+        <a href="#contact" class="mob-link">Contato</a>
+      </nav>
+      <div class="mob-menu__bottom">
+        <a
+          href="https://api.whatsapp.com/send/?phone=5511961880078"
+          class="btn-wpp"
+        >
+          <i class="fab fa-whatsapp"></i> Iniciar Projeto
+        </a>
+        <div class="mob-socials">
+          <a href="https://www.instagram.com/greensypaisagismo/" target="_blank"
+            >Instagram</a
+          >
+          <a
+            href="https://api.whatsapp.com/send/?phone=5511961880078"
+            target="_blank"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
     </div>
-  </div>
-</header>
 
-<!-- Mobile Menu -->
-<div class="mob-menu" id="mob-menu">
-  <nav class="mob-menu__nav">
-    <a href="#about"    class="mob-link">Sobre</a>
-    <a href="#services" class="mob-link">Expertise</a>
-    <a href="#projects" class="mob-link">Portfólio</a>
-    <a href="#ceo"      class="mob-link">O Fundador</a>
-    <a href="#contact"  class="mob-link">Contato</a>
-  </nav>
-  <div class="mob-menu__bottom">
-    <a href="https://api.whatsapp.com/send/?phone=5511961880078" class="btn-wpp">
-      <i class="fab fa-whatsapp"></i> Iniciar Projeto
-    </a>
-    <div class="mob-socials">
-      <a href="https://www.instagram.com/greensypaisagismo/" target="_blank">Instagram</a>
-      <a href="https://api.whatsapp.com/send/?phone=5511961880078" target="_blank">WhatsApp</a>
-    </div>
-  </div>
-</div>
-
-<main>
-
-<!-- ====================================================
+    <main>
+      <!-- ====================================================
      HERO — Minimalist Glass Premium
 ===================================================== -->
-<section class="hero" id="hero">
+      <section class="hero" id="hero">
+        <div class="hero__bg" id="hero-media">
+          <video
+            class="hero__video"
+            autoplay
+            loop
+            muted
+            playsinline
+            poster="img/hero.jpg"
+            preload="metadata"
+          >
+            <source src="videos/home-video.mp4" type="video/mp4" />
+          </video>
+          <div class="hero__overlay"></div>
+        </div>
 
-  <div class="hero__bg" id="hero-media">
-    <video class="hero__video" autoplay loop muted playsinline poster="img/hero.jpg" preload="metadata">
-      <source src="videos/home-video.mp4" type="video/mp4" />
-    </video>
-    <div class="hero__overlay"></div>
-  </div>
+        <div class="hero__topbar">
+          <a
+            href="https://www.instagram.com/greensypaisagismo/"
+            target="_blank"
+            class="hero__social-link"
+          >
+            <i class="fab fa-instagram"></i> @greensypaisagismo
+          </a>
+        </div>
 
-  <div class="hero__topbar">
+        <div class="hero__main">
+          <div class="hero__eyebrow" id="hero-eye">
+            <span class="hero__eyebrow-dot"></span>
+            Paisagismo de Alto Padrão
+          </div>
 
-    <a href="https://www.instagram.com/greensypaisagismo/" target="_blank" class="hero__social-link">
-      <i class="fab fa-instagram"></i> @greensypaisagismo
-    </a>
-  </div>
+          <h1 class="hero__heading">
+            <span class="reveal-line"
+              ><span>Arte que <em>respira,</em></span></span
+            >
+            <span class="reveal-line"
+              ><span>espaços que <em>transformam.</em></span></span
+            >
+          </h1>
 
-  <div class="hero__main">
+          <p class="hero__desc" id="hero-desc">
+            Santuários botânicos criados com precisão técnica e visão
+            artística.<br />
+            Do projeto à manutenção, cada detalhe carrega uma assinatura.
+          </p>
 
-    <div class="hero__eyebrow" id="hero-eye">
-      <span class="hero__eyebrow-dot"></span>
-      Paisagismo de Alto Padrão
-    </div>
+          <div class="hero__actions" id="hero-ctas">
+            <a
+              href="https://api.whatsapp.com/send/?phone=5511961880078"
+              class="hero__cta"
+            >
+              Iniciar Projeto
+              <div class="hero__cta-arrow">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+            <a href="#projects" class="hero__ghost">Ver Portfólio</a>
+          </div>
+        </div>
 
-    <h1 class="hero__heading">
-      <span class="reveal-line"><span>Arte que <em>respira,</em></span></span>
-      <span class="reveal-line"><span>espaços que <em>transformam.</em></span></span>
-    </h1>
+        <div class="hero__bottom" id="hero-stats">
+          <div class="hero__glass-bar">
+            <div class="hero__stat">
+              <span class="hero__stat-n">+350</span>
+              <span class="hero__stat-l">Projetos entregues</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-n">20</span>
+              <span class="hero__stat-l">Anos de excelência</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-n">100%</span>
+              <span class="hero__stat-l">Satisfação garantida</span>
+            </div>
+            <div class="hero__scroll-wrap" id="scroll-hint">
+              <span class="scroll-label">Scroll</span>
+              <div class="scroll-track"><div class="scroll-fill"></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <p class="hero__desc" id="hero-desc">
-      Santuários botânicos criados com precisão técnica e visão artística.<br>
-      Do projeto à manutenção, cada detalhe carrega uma assinatura.
-    </p>
-
-    <div class="hero__actions" id="hero-ctas">
-      <a href="https://api.whatsapp.com/send/?phone=5511961880078" class="hero__cta">
-        Iniciar Projeto
-        <div class="hero__cta-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </a>
-      <a href="#projects" class="hero__ghost">Ver Portfólio</a>
-    </div>
-
-  </div>
-
-  <div class="hero__bottom" id="hero-stats">
-    <div class="hero__glass-bar">
-      <div class="hero__stat">
-        <span class="hero__stat-n">+350</span>
-        <span class="hero__stat-l">Projetos entregues</span>
-      </div>
-      <div class="hero__stat">
-        <span class="hero__stat-n">20</span>
-        <span class="hero__stat-l">Anos de excelência</span>
-      </div>
-      <div class="hero__stat">
-        <span class="hero__stat-n">100%</span>
-        <span class="hero__stat-l">Satisfação garantida</span>
-      </div>
-      <div class="hero__scroll-wrap" id="scroll-hint">
-        <span class="scroll-label">Scroll</span>
-        <div class="scroll-track"><div class="scroll-fill"></div></div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-<!-- ====================================================
+      <!-- ====================================================
      CLIENTS LOGO STRIP
 ===================================================== -->
-<div class="clients-strip">
-  <div class="clients-strip__label">Clientes que confiam</div>
-  <div class="clients-strip__track-wrap">
-    <div class="clients-strip__track">
-      <!-- Set 1 -->
-      <div class="clients-strip__logo"><img src="img/bradesco-seeklogo.png" alt="Bradesco" loading="lazy"></div>
-      <div class="clients-strip__logo"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="BTG Pactual" loading="lazy"></div>
-      <div class="clients-strip__logo"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt="Iguatemi" loading="lazy"></div>
-      <!-- Set 2 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 3 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 4 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 5 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 6 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 7 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 8 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 9 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-      <!-- Set 10 -->
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/bradesco-seeklogo.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/BTG_Pactual_idoANmqqPA_0.png" alt=""></div>
-      <div class="clients-strip__logo" aria-hidden="true"><img src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png" alt=""></div>
-    </div>
-  </div>
-</div>
+      <div class="clients-strip">
+        <div class="clients-strip__label">Clientes que confiam</div>
+        <div class="clients-strip__track-wrap">
+          <div class="clients-strip__track">
+            <!-- Set 1 -->
+            <div class="clients-strip__logo">
+              <img
+                src="img/bradesco-seeklogo.png"
+                alt="Bradesco"
+                loading="lazy"
+              />
+            </div>
+            <div class="clients-strip__logo">
+              <img
+                src="img/BTG_Pactual_idoANmqqPA_0.png"
+                alt="BTG Pactual"
+                loading="lazy"
+              />
+            </div>
+            <div class="clients-strip__logo">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt="Iguatemi"
+                loading="lazy"
+              />
+            </div>
+            <!-- Set 2 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 3 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 4 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 5 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 6 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 7 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 8 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 9 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+            <!-- Set 10 -->
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/bradesco-seeklogo.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img src="img/BTG_Pactual_idoANmqqPA_0.png" alt="" />
+            </div>
+            <div class="clients-strip__logo" aria-hidden="true">
+              <img
+                src="img/IGUATEMI_SAO_PAULO_removebg_preview_f930a74b8f.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-<!-- ====================================================
+      <!-- ====================================================
      ABOUT
 ===================================================== -->
-<section class="about section" id="about">
-  <div class="container">
-    <div class="about__grid">
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="about__grid">
+            <!-- Images collage -->
+            <div class="about__media" id="about-media">
+              <div class="about__arch">
+                <img src="img/home-01.webp" alt="Jardim Greensy" />
+                <div class="about__arch-badge">
+                  +350<span>Projetos Entregues</span>
+                </div>
+              </div>
+              <div class="about__pill" id="about-pill">
+                <img src="img/home-02.webp" alt="Detalhe Botânico" />
+              </div>
+              <div class="about__float-card" id="about-float">
+                <p>"Detalhe é filosofia, não acabamento."</p>
+                <span>— Antônio Costa</span>
+              </div>
+            </div>
 
-      <!-- Images collage -->
-      <div class="about__media" id="about-media">
-        <div class="about__arch">
-          <img src="img/home-01.webp" alt="Jardim Greensy" />
-          <div class="about__arch-badge">
-            +350<span>Projetos Entregues</span>
+            <!-- Text -->
+            <div class="about__text">
+              <p class="tag-line reveal-up">/ Nossa Filosofia</p>
+              <h2 class="reveal-up">
+                Cada jardim conta<br />uma <em class="it">história única.</em>
+              </h2>
+              <p class="body-text reveal-up">
+                Não fazemos projetos: criamos narrativas vivas. Cada textura de
+                pedra, cada espécie selecionada e cada ângulo de luz foi pensado
+                para que o visitante sinta algo que vai além da visão.
+              </p>
+              <p class="body-text reveal-up">
+                Estudamos o microclima do seu terreno, a personalidade de quem o
+                habita e o diálogo com a arquitetura existente para criar uma
+                composição que respira e evolui ao longo das estações.
+              </p>
+              <div class="about__pills reveal-up">
+                <span>Paisagismo Premium</span>
+                <span>Design Autoral</span>
+                <span>Expertise Botânica</span>
+              </div>
+              <a href="#services" class="link-arrow reveal-up"
+                >Conhecer nossa expertise <i class="fa fa-arrow-right"></i
+              ></a>
+            </div>
           </div>
         </div>
-        <div class="about__pill" id="about-pill">
-          <img src="img/home-02.webp" alt="Detalhe Botânico" />
-        </div>
-        <div class="about__float-card" id="about-float">
-          <p>"Detalhe é filosofia, não acabamento."</p>
-          <span>— Antônio Costa</span>
-        </div>
-      </div>
+      </section>
 
-      <!-- Text -->
-      <div class="about__text">
-        <p class="tag-line reveal-up">/ Nossa Filosofia</p>
-        <h2 class="reveal-up">Cada jardim conta<br>uma <em class="it">história única.</em></h2>
-        <p class="body-text reveal-up">
-          Não fazemos projetos: criamos narrativas vivas. Cada textura de pedra, cada espécie selecionada e cada ângulo de luz foi pensado para que o visitante sinta algo que vai além da visão.
-        </p>
-        <p class="body-text reveal-up">
-          Estudamos o microclima do seu terreno, a personalidade de quem o habita e o diálogo com a arquitetura existente para criar uma composição que respira e evolui ao longo das estações.
-        </p>
-        <div class="about__pills reveal-up">
-          <span>Paisagismo Premium</span>
-          <span>Design Autoral</span>
-          <span>Expertise Botânica</span>
-        </div>
-        <a href="#services" class="link-arrow reveal-up">Conhecer nossa expertise <i class="fa fa-arrow-right"></i></a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ====================================================
+      <!-- ====================================================
      SERVICES (Premium Video Cards)
 ===================================================== -->
-<section class="services section section--dark" id="services">
-  <div class="container">
-    <div class="services__header">
-      <div class="services__header-left">
-        <p class="tag-line light reveal-up">/ EXPERTISE</p>
-        <h2 class="light reveal-up">O domínio absoluto<br><em class="it">da natureza.</em></h2>
-      </div>
-      <div class="services__header-right reveal-up">
-        <p class="body-text light">
-          Técnica botânica avançada unida ao design de alto padrão. Nossas especialidades cobrem todas as fases do jardim, do planejamento minucioso à evolução contínua das espécies.
-        </p>
-      </div>
-    </div>
+      <section class="services section section--dark" id="services">
+        <div class="container">
+          <div class="services__header">
+            <div class="services__header-left">
+              <p class="tag-line light reveal-up">/ EXPERTISE</p>
+              <h2 class="light reveal-up">
+                O domínio absoluto<br /><em class="it">da natureza.</em>
+              </h2>
+            </div>
+            <div class="services__header-right reveal-up">
+              <p class="body-text light">
+                Técnica botânica avançada unida ao design de alto padrão. Nossas
+                especialidades cobrem todas as fases do jardim, do planejamento
+                minucioso à evolução contínua das espécies.
+              </p>
+            </div>
+          </div>
 
-    <div class="services__grid-premium">
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">01</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Manutenção Paisagística</h4>
+          <div class="services__grid-premium">
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">01</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Manutenção Paisagística</h4>
+              </div>
+              <p>
+                Cuidado contínuo com podas, adubação e irrigação para jardins
+                sempre impecáveis.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">02</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Projeto Personalizados</h4>
+              </div>
+              <p>
+                Criação sob medida respeitando a arquitetura e os desejos
+                exclusivos de cada cliente.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">03</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Revitalização de Áreas</h4>
+              </div>
+              <p>
+                Recuperação e redesenho de jardins existentes para novas
+                demandas estéticas.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">04</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Análise Consultiva</h4>
+              </div>
+              <p>
+                Planejamento estratégico e técnico para garantir soluções
+                eficazes e otimizadas.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">05</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Poda e Manejo</h4>
+              </div>
+              <p>
+                Poda de formação, poda de segurança, remoção e transplante de
+                árvores.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">06</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Controle de Pragas</h4>
+              </div>
+              <p>
+                Aplicação de produtos, controle de fungos, insetos e pragas,
+                tratamento fitossanitário.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">07</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Sistemas de Irrigação</h4>
+              </div>
+              <p>
+                Instalação de irrigação automática, manutenção de sistemas e
+                ajuste de consumo de água.
+              </p>
+            </div>
+            <div class="svc-prem-card reveal-up">
+              <span class="svc-prem-bg-num">08</span>
+              <div class="svc-prem-top">
+                <div class="svc-prem-dot"></div>
+                <h4>Serviços Complementares</h4>
+              </div>
+              <p>
+                Jardim vertical, horta, decoração com pedras e madeira,
+                iluminação e reflorestamento.
+              </p>
+            </div>
+          </div>
         </div>
-        <p>Cuidado contínuo com podas, adubação e irrigação para jardins sempre impecáveis.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">02</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Projeto Personalizados</h4>
-        </div>
-        <p>Criação sob medida respeitando a arquitetura e os desejos exclusivos de cada cliente.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">03</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Revitalização de Áreas</h4>
-        </div>
-        <p>Recuperação e redesenho de jardins existentes para novas demandas estéticas.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">04</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Análise Consultiva</h4>
-        </div>
-        <p>Planejamento estratégico e técnico para garantir soluções eficazes e otimizadas.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">05</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Poda e Manejo</h4>
-        </div>
-        <p>Poda de formação, poda de segurança, remoção e transplante de árvores.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">06</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Controle de Pragas</h4>
-        </div>
-        <p>Aplicação de produtos, controle de fungos, insetos e pragas, tratamento fitossanitário.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">07</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Sistemas de Irrigação</h4>
-        </div>
-        <p>Instalação de irrigação automática, manutenção de sistemas e ajuste de consumo de água.</p>
-      </div>
-      <div class="svc-prem-card reveal-up">
-        <span class="svc-prem-bg-num">08</span>
-        <div class="svc-prem-top">
-          <div class="svc-prem-dot"></div>
-          <h4>Serviços Complementares</h4>
-        </div>
-        <p>Jardim vertical, horta, decoração com pedras e madeira, iluminação e reflorestamento.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- ====================================================
+      <!-- ====================================================
      INSPIRATION GALLERY
 ===================================================== -->
-<section class="inspire-gallery section">
-  <div class="container">
-    <div class="inspire__top">
-      <p class="tag-line reveal-up">/ VISÃO VISUAL</p>
-      <h2 class="reveal-up">A estética em <em class="it">sua essência.</em></h2>
-    </div>
-    <div class="inspire__grid">
-      <div class="inspire__img inspire__img--1 reveal-up"><img src="img/servico5.jpeg" alt="Inspiração Paisagística" loading="lazy"></div>
-      <div class="inspire__img inspire__img--2 reveal-up"><img src="img/servico3.jpeg" alt="Parede Verde" loading="lazy"></div>
-      <div class="inspire__img inspire__img--3 reveal-up"><img src="img/veneno.jpeg" alt="Cuidados com Plantas" loading="lazy"></div>
-      <div class="inspire__img inspire__img--4 reveal-up"><img src="img/servico4.jpeg" alt="Design e Irrigação" loading="lazy"></div>
-    </div>
-  </div>
-</section>
+      <section class="inspire-gallery section">
+        <div class="container">
+          <div class="inspire__top">
+            <p class="tag-line reveal-up">/ VISÃO VISUAL</p>
+            <h2 class="reveal-up">
+              A estética em <em class="it">sua essência.</em>
+            </h2>
+          </div>
+          <div class="inspire__grid">
+            <div class="inspire__img inspire__img--1 reveal-up">
+              <img
+                src="img/servico5.jpeg"
+                alt="Inspiração Paisagística"
+                loading="lazy"
+              />
+            </div>
+            <div class="inspire__img inspire__img--2 reveal-up">
+              <img src="img/servico3.jpeg" alt="Parede Verde" loading="lazy" />
+            </div>
+            <div class="inspire__img inspire__img--3 reveal-up">
+              <img
+                src="img/veneno.jpeg"
+                alt="Cuidados com Plantas"
+                loading="lazy"
+              />
+            </div>
+            <div class="inspire__img inspire__img--4 reveal-up">
+              <img
+                src="img/servico4.jpeg"
+                alt="Design e Irrigação"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-
-<!-- ====================================================
+      <!-- ====================================================
      PREMIUM CARE & FIELD EXCELLENCE
 ===================================================== -->
-<section class="care section">
-  <div class="container">
-    <div class="care__header">
-      <p class="tag-line reveal-up">/ CUIDADOS ESPECIAIS</p>
-      <h2 class="reveal-up">Técnica, cuidado e precisão<br>em cada <em class="it">detalhe.</em></h2>
-      <p class="body-text reveal-up" style="max-width: 600px; margin: 0 auto;">Do controle preventivo à manutenção em altura, cada intervenção é planejada para preservar a estética, a saúde e a longevidade do jardim.</p>
-    </div>
-    
-    <div class="care__grid">
-      <!-- Card 1 -->
-      <div class="care-card reveal-up">
-        <div class="care-card__media">
-          <img src="img/servico1.jpeg" alt="Controle de Pragas" loading="lazy" decoding="async" />
-        </div>
-        <div class="care-card__content">
-          <span class="care-card__num">01</span>
-          <h3>Controle de Pragas e Doenças</h3>
-          <p>Tratamentos preventivos e corretivos para manter o jardim saudável, equilibrado e protegido durante todo o ano.</p>
-        </div>
-      </div>
+      <section class="care section">
+        <div class="container">
+          <div class="care__header">
+            <p class="tag-line reveal-up">/ CUIDADOS ESPECIAIS</p>
+            <h2 class="reveal-up">
+              Técnica, cuidado e precisão<br />em cada
+              <em class="it">detalhe.</em>
+            </h2>
+            <p
+              class="body-text reveal-up"
+              style="max-width: 600px; margin: 0 auto"
+            >
+              Do controle preventivo à manutenção em altura, cada intervenção é
+              planejada para preservar a estética, a saúde e a longevidade do
+              jardim.
+            </p>
+          </div>
 
-      <!-- Card 2 -->
-      <div class="care-card care-card--offset reveal-up">
-        <div class="care-card__media">
-          <img src="img/veneno2.png" alt="Jardins Verticais e Altura" loading="lazy" decoding="async" />
-        </div>
-        <div class="care-card__content">
-          <span class="care-card__num">02</span>
-          <h3>Jardins Verticais e Altura</h3>
-          <p>Execução e manutenção técnica em fachadas vivas, paredes verdes e estruturas elevadas, com segurança e acabamento premium.</p>
-        </div>
-      </div>
+          <div class="care__grid">
+            <!-- Card 1 -->
+            <div class="care-card reveal-up">
+              <div class="care-card__media">
+                <img
+                  src="img/servico1.jpeg"
+                  alt="Controle de Pragas"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="care-card__content">
+                <span class="care-card__num">01</span>
+                <h3>Controle de Pragas e Doenças</h3>
+                <p>
+                  Tratamentos preventivos e corretivos para manter o jardim
+                  saudável, equilibrado e protegido durante todo o ano.
+                </p>
+              </div>
+            </div>
 
-      <!-- Card 3 -->
-      <div class="care-card reveal-up">
-        <div class="care-card__media">
-          <video autoplay loop muted playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="videos/video1.mp4" type="video/mp4" />
-          </video>
+            <!-- Card 2 -->
+            <div class="care-card care-card--offset reveal-up">
+              <div class="care-card__media">
+                <img
+                  src="img/veneno2.png"
+                  alt="Jardins Verticais e Altura"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="care-card__content">
+                <span class="care-card__num">02</span>
+                <h3>Jardins Verticais e Altura</h3>
+                <p>
+                  Execução e manutenção técnica em fachadas vivas, paredes
+                  verdes e estruturas elevadas, com segurança e acabamento
+                  premium.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="care-card reveal-up">
+              <div class="care-card__media">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload="none"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                >
+                  <source src="videos/video1.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="care-card__content">
+                <span class="care-card__num">03</span>
+                <h3>Manutenção Especializada</h3>
+                <p>
+                  Poda, nutrição, limpeza, replantio e acompanhamento técnico
+                  para manter o projeto sempre impecável.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="care-card care-card--offset reveal-up">
+              <div class="care-card__media">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  preload="none"
+                  style="width: 100%; height: 100%; object-fit: cover"
+                >
+                  <source src="videos/irrigação.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="care-card__content">
+                <span class="care-card__num">04</span>
+                <h3>Irrigação e Monitoramento</h3>
+                <p>
+                  Soluções inteligentes para controle hídrico, redução de
+                  desperdícios e estabilidade do paisagismo em todas as
+                  estações.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="care-card__content">
-          <span class="care-card__num">03</span>
-          <h3>Manutenção Especializada</h3>
-          <p>Poda, nutrição, limpeza, replantio e acompanhamento técnico para manter o projeto sempre impecável.</p>
-        </div>
-      </div>
+      </section>
 
-      <!-- Card 4 -->
-      <div class="care-card care-card--offset reveal-up">
-        <div class="care-card__media">
-          <video autoplay loop muted playsinline preload="none" style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="videos/irrigação.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="care-card__content">
-          <span class="care-card__num">04</span>
-          <h3>Irrigação e Monitoramento</h3>
-          <p>Soluções inteligentes para controle hídrico, redução de desperdícios e estabilidade do paisagismo em todas as estações.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- ====================================================
+      <!-- ====================================================
      PORTFOLIO — Editorial Magazine Style
 ===================================================== -->
-<section class="portfolio section section--dark" id="projects">
+      <section class="portfolio section section--dark" id="projects">
+        <!-- Header -->
+        <div class="pf-header-glass container">
+          <div class="pf-glass-box reveal-up">
+            <div class="pf-glass-box__top"></div>
+            <h2 class="pf-glass-title">Nossos Projetos</h2>
+            <p class="pf-glass-desc">
+              Explore nossa galeria de projetos e descubra como transformamos
+              espaços comuns em verdadeiros refúgios de alto padrão.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send/?phone=5511961880078"
+              class="pf-glass-btn"
+            >
+              <span>Iniciar Projeto</span> <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
 
-  <!-- Header -->
-  <div class="pf-header-glass container">
-    <div class="pf-glass-box reveal-up">
-      <div class="pf-glass-box__top">
-        
-      
-      </div>
-      <h2 class="pf-glass-title">Nossos Projetos</h2>
-      <p class="pf-glass-desc">Explore nossa galeria de projetos e descubra como transformamos espaços comuns em verdadeiros refúgios de alto padrão.</p>
-      <a href="https://api.whatsapp.com/send/?phone=5511961880078" class="pf-glass-btn">
-        <span>Iniciar Projeto</span> <i class="fa fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
+        <!-- Panel 1: Image left 65% + text right -->
+        <div class="pf-panel reveal-up">
+          <div class="pf-panel__img pf-panel__img--left">
+            <img
+              src="img/home-01.webp"
+              alt="Jardim Residencial"
+              loading="lazy"
+            />
+          </div>
+          <div class="pf-panel__text pf-panel__text--right">
+            <span class="pf-panel__num">01</span>
+            <p class="pf-panel__cat">Paisagismo Residencial</p>
+            <h3 class="pf-panel__title">Villa Botânica</h3>
+            <p class="pf-panel__desc">
+              Projeto de alto padrão com curadoria botânica exclusiva,
+              integração de espelho d'água e iluminação cenarística para uso
+              noturno.
+            </p>
+            <div class="pf-panel__tags">
+              <span>Jardins, SP</span><span>2024</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- Panel 1: Image left 65% + text right -->
-  <div class="pf-panel reveal-up">
-    <div class="pf-panel__img pf-panel__img--left">
-      <img src="img/home-01.webp" alt="Jardim Residencial" loading="lazy" />
-    </div>
-    <div class="pf-panel__text pf-panel__text--right">
-      <span class="pf-panel__num">01</span>
-      <p class="pf-panel__cat">Paisagismo Residencial</p>
-      <h3 class="pf-panel__title">Villa Botânica</h3>
-      <p class="pf-panel__desc">Projeto de alto padrão com curadoria botânica exclusiva, integração de espelho d'água e iluminação cenarística para uso noturno.</p>
-      <div class="pf-panel__tags"><span>Jardins, SP</span><span>2024</span></div>
-    </div>
-  </div>
+        <!-- Panel 2: Text left + Image right 65% -->
+        <div class="pf-panel pf-panel--rev reveal-up">
+          <div class="pf-panel__text pf-panel__text--left">
+            <span class="pf-panel__num">02</span>
+            <p class="pf-panel__cat">Terraço Corporativo</p>
+            <h3 class="pf-panel__title">
+              Cobertura<br /><em class="it">Nobre</em>
+            </h3>
+            <p class="pf-panel__desc">
+              Green roof executivo com vegetação nativa, deck em madeira e
+              sistema de irrigação automatizado. Referência em bem-estar
+              corporativo.
+            </p>
+            <div class="pf-panel__tags">
+              <span>Itaim Bibi, SP</span><span>2023</span>
+            </div>
+          </div>
+          <div class="pf-panel__img pf-panel__img--right">
+            <img src="img/home-02.webp" alt="Cobertura Verde" loading="lazy" />
+          </div>
+        </div>
 
-  <!-- Panel 2: Text left + Image right 65% -->
-  <div class="pf-panel pf-panel--rev reveal-up">
-    <div class="pf-panel__text pf-panel__text--left">
-      <span class="pf-panel__num">02</span>
-      <p class="pf-panel__cat">Terraço Corporativo</p>
-      <h3 class="pf-panel__title">Cobertura<br><em class="it">Nobre</em></h3>
-      <p class="pf-panel__desc">Green roof executivo com vegetação nativa, deck em madeira e sistema de irrigação automatizado. Referência em bem-estar corporativo.</p>
-      <div class="pf-panel__tags"><span>Itaim Bibi, SP</span><span>2023</span></div>
-    </div>
-    <div class="pf-panel__img pf-panel__img--right">
-      <img src="img/home-02.webp" alt="Cobertura Verde" loading="lazy" />
-    </div>
-  </div>
+        <!-- Panel 3: Full bleed cinematic -->
+        <div class="pf-cinematic reveal-up">
+          <img src="img/home-04.webp" alt="Jardim Monumental" loading="lazy" />
+          <div class="pf-cinematic__overlay"></div>
+          <div class="pf-cinematic__text">
+            <div class="pf-cinematic__meta">
+              <span>03</span><span>Paisagismo de Alta Complexidade</span>
+            </div>
+            <h3>Jardim<br /><em class="it">Monumental</em></h3>
+            <p>Alphaville, São Paulo — 2024</p>
+          </div>
+        </div>
 
-  <!-- Panel 3: Full bleed cinematic -->
-  <div class="pf-cinematic reveal-up">
-    <img src="img/home-04.webp" alt="Jardim Monumental" loading="lazy" />
-    <div class="pf-cinematic__overlay"></div>
-    <div class="pf-cinematic__text">
-      <div class="pf-cinematic__meta"><span>03</span><span>Paisagismo de Alta Complexidade</span></div>
-      <h3>Jardim<br><em class="it">Monumental</em></h3>
-      <p>Alphaville, São Paulo — 2024</p>
-    </div>
-  </div>
+        <!-- Mosaic Grid -->
+        <div class="pf-mosaic">
+          <div class="pf-mosaic__item pf-mosaic__item--tall reveal-up">
+            <img src="img/home-05.webp" alt="Recanto Natural" loading="lazy" />
+            <div class="pf-mosaic__info">
+              <span>04 · Residencial</span>
+              <h4>Recanto Natural</h4>
+            </div>
+          </div>
+          <div class="pf-mosaic__item pf-mosaic__item--sm reveal-up">
+            <img src="img/img4.jpg" alt="Jardim de Entrada" loading="lazy" />
+            <div class="pf-mosaic__info">
+              <span>05 · Entrada</span>
+              <h4>Jardim de Entrada</h4>
+            </div>
+          </div>
+          <div class="pf-mosaic__item pf-mosaic__item--sm reveal-up">
+            <img src="img/img5.jpg" alt="Oásis Urbano" loading="lazy" />
+            <div class="pf-mosaic__info">
+              <span>06 · Urbano</span>
+              <h4>Oásis Urbano</h4>
+            </div>
+          </div>
+          <div class="pf-mosaic__item pf-mosaic__item--wide reveal-up">
+            <img src="img/img6.jpg" alt="Terraço Privativo" loading="lazy" />
+            <div class="pf-mosaic__info">
+              <span>07 · Rooftop</span>
+              <h4>Terraço Privativo</h4>
+            </div>
+          </div>
+        </div>
 
-  <!-- Mosaic Grid -->
-  <div class="pf-mosaic">
-    <div class="pf-mosaic__item pf-mosaic__item--tall reveal-up">
-      <img src="img/home-05.webp" alt="Recanto Natural" loading="lazy" />
-      <div class="pf-mosaic__info"><span>04 · Residencial</span><h4>Recanto Natural</h4></div>
-    </div>
-    <div class="pf-mosaic__item pf-mosaic__item--sm reveal-up">
-      <img src="img/img4.jpg" alt="Jardim de Entrada" loading="lazy" />
-      <div class="pf-mosaic__info"><span>05 · Entrada</span><h4>Jardim de Entrada</h4></div>
-    </div>
-    <div class="pf-mosaic__item pf-mosaic__item--sm reveal-up">
-      <img src="img/img5.jpg" alt="Oásis Urbano" loading="lazy" />
-      <div class="pf-mosaic__info"><span>06 · Urbano</span><h4>Oásis Urbano</h4></div>
-    </div>
-    <div class="pf-mosaic__item pf-mosaic__item--wide reveal-up">
-      <img src="img/img6.jpg" alt="Terraço Privativo" loading="lazy" />
-      <div class="pf-mosaic__info"><span>07 · Rooftop</span><h4>Terraço Privativo</h4></div>
-    </div>
-  </div>
+        <!-- Carousel strip -->
+        <div class="pf-strip container">
+          <div class="pf-strip__top">
+            <div>
+              <p class="tag-line light">/ OUTRAS OBRAS</p>
+              <h3 class="light">Mais do nosso acervo</h3>
+            </div>
+            <div class="pf-strip__nav">
+              <button id="c-prev" class="pnav-btn" aria-label="Anterior">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <button id="c-next" class="pnav-btn" aria-label="Próxima">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <div class="portfolio__carousel" id="port-carousel">
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/foto1.webp" alt="P1" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Residencial · SP</span>
+                <h4>Jardim Serenidade</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/foto3.jpg" alt="P2" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Corporativo · SP</span>
+                <h4>Recanto Nativo</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/foto4.jpg" alt="P3" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Residencial · RJ</span>
+                <h4>Casa Brisa</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/home-07.webp" alt="P4" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Piscina · SP</span>
+                <h4>Villa das Águas</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/img7.jpg" alt="P5" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Rooftop · SP</span>
+                <h4>Sky Garden</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/img9.jpg" alt="P6" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Entrada · SP</span>
+                <h4>Entrada Monumental</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/foto6.jpg" alt="P7" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Residencial · SP</span>
+                <h4>Corpo Verde</h4>
+              </div>
+            </div>
+            <div class="pcar-item">
+              <div class="pcar-item__media">
+                <img src="img/foto7.jpg" alt="P8" loading="lazy" />
+              </div>
+              <div class="pcar-item__info">
+                <span>Residencial · SP</span>
+                <h4>Oásis Urbano</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Carousel strip -->
-  <div class="pf-strip container">
-    <div class="pf-strip__top">
-      <div>
-        <p class="tag-line light">/ OUTRAS OBRAS</p>
-        <h3 class="light">Mais do nosso acervo</h3>
-      </div>
-      <div class="pf-strip__nav">
-        <button id="c-prev" class="pnav-btn" aria-label="Anterior"><i class="fa-solid fa-arrow-left"></i></button>
-        <button id="c-next" class="pnav-btn" aria-label="Próxima"><i class="fa-solid fa-arrow-right"></i></button>
-      </div>
-    </div>
-    <div class="portfolio__carousel" id="port-carousel">
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/foto1.webp" alt="P1" loading="lazy"/></div><div class="pcar-item__info"><span>Residencial · SP</span><h4>Jardim Serenidade</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/foto3.jpg" alt="P2" loading="lazy"/></div><div class="pcar-item__info"><span>Corporativo · SP</span><h4>Recanto Nativo</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/foto4.jpg" alt="P3" loading="lazy"/></div><div class="pcar-item__info"><span>Residencial · RJ</span><h4>Casa Brisa</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/home-07.webp" alt="P4" loading="lazy"/></div><div class="pcar-item__info"><span>Piscina · SP</span><h4>Villa das Águas</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/img7.jpg" alt="P5" loading="lazy"/></div><div class="pcar-item__info"><span>Rooftop · SP</span><h4>Sky Garden</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/img9.jpg" alt="P6" loading="lazy"/></div><div class="pcar-item__info"><span>Entrada · SP</span><h4>Entrada Monumental</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/foto6.jpg" alt="P7" loading="lazy"/></div><div class="pcar-item__info"><span>Residencial · SP</span><h4>Corpo Verde</h4></div></div>
-      <div class="pcar-item"><div class="pcar-item__media"><img src="img/foto7.jpg" alt="P8" loading="lazy"/></div><div class="pcar-item__info"><span>Residencial · SP</span><h4>Oásis Urbano</h4></div></div>
-    </div>
-  </div>
-
-</section>
-
-
-
-
-
-
-<!-- ====================================================
+      <!-- ====================================================
      TRANSFORMAÇÃO
 ===================================================== -->
-<section class="transform section" id="transform">
-  <div class="container">
-    <div class="transform__grid">
-      <div class="transform__text reveal-up">
-        <span class="transform__num">02</span>
-        <p class="tag-line">/ TRANSFORMAÇÃO</p>
-        <h2>Do espaço vazio à<br><em class="it">experiência viva.</em></h2>
-        <p class="body-text">
-          Cada projeto nasce da leitura cuidadosa do ambiente: luz, circulação, textura, espécies botânicas e a rotina de quem o habita.
-        </p>
-        <p class="body-text">
-          O resultado é um jardim de alto padrão que não apenas ocupa o espaço — ele altera a percepção do tempo, traz tranquilidade e transforma profundamente a forma de viver nele.
-        </p>
-        <div class="transform__labels">
-          <span>Curadoria botânica</span>
-          <span>Composição visual</span>
-          <span>Execução premium</span>
+      <section class="transform section" id="transform">
+        <div class="container">
+          <div class="transform__grid">
+            <div class="transform__text reveal-up">
+              <span class="transform__num">02</span>
+              <p class="tag-line">/ TRANSFORMAÇÃO</p>
+              <h2>
+                Do espaço vazio à<br /><em class="it">experiência viva.</em>
+              </h2>
+              <p class="body-text">
+                Cada projeto nasce da leitura cuidadosa do ambiente: luz,
+                circulação, textura, espécies botânicas e a rotina de quem o
+                habita.
+              </p>
+              <p class="body-text">
+                O resultado é um jardim de alto padrão que não apenas ocupa o
+                espaço — ele altera a percepção do tempo, traz tranquilidade e
+                transforma profundamente a forma de viver nele.
+              </p>
+              <div class="transform__labels">
+                <span>Curadoria botânica</span>
+                <span>Composição visual</span>
+                <span>Execução premium</span>
+              </div>
+            </div>
+            <div class="transform__media reveal-up">
+              <div class="transform__img-wrap">
+                <img
+                  src="img/home-06.webp"
+                  alt="Transformação do Espaço"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="transform__glass-card">
+                <p>O equilíbrio perfeito entre arquitetura e natureza.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="transform__media reveal-up">
-        <div class="transform__img-wrap">
-          <img src="img/home-06.webp" alt="Transformação do Espaço" loading="lazy" decoding="async" />
-        </div>
-        <div class="transform__glass-card">
-          <p>O equilíbrio perfeito entre arquitetura e natureza.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
+      <!-- ====================================================
+     PROTEÇÃO GREENSY
+===================================================== -->
+      <section class="protection section section--dark" id="protection">
+        <div class="container">
+          <div class="protection__header">
+            <p class="tag-line light reveal-up">/ PROTEÇÃO GREENSY</p>
+            <h2 class="light reveal-up">
+              Seu jardim protegido em<br /><em class="it">todos os momentos.</em>
+            </h2>
+            <p class="body-text light reveal-up" style="max-width: 700px; margin: 0 auto">
+              Assim como um carro de luxo merece proteção especializada, seu jardim também. A Greensy oferece planos exclusivos para manter a beleza, a saúde e a valorização do seu espaço ao longo dos anos.
+            </p>
+          </div>
 
-<!-- ====================================================
+          <div class="protection__grid">
+            <!-- Card 1 -->
+            <div class="prot-card reveal-up">
+              <div class="prot-card__icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="prot-card__content">
+                <h3>Proteção Greensy</h3>
+                <p class="prot-card__desc">
+                  Seu jardim é um patrimônio vivo.<br/><br/>Com a Proteção Greensy, você conta com acompanhamento especializado e reposição de espécies cobertas pelo plano caso ocorram perdas naturais previstas em contrato.
+                </p>
+                <ul class="prot-card__benefits">
+                  <li><i class="fa-solid fa-check"></i> Proteção para espécies cobertas</li>
+                  <li><i class="fa-solid fa-check"></i> Reposição conforme contrato</li>
+                  <li><i class="fa-solid fa-check"></i> Acompanhamento especializado</li>
+                  <li><i class="fa-solid fa-check"></i> Tranquilidade para o proprietário</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=5511961880078&text=Ol%C3%A1%21+Vim+pelo+site+e+tenho+interesse+na+Prote%C3%A7%C3%A3o+Greensy." target="_blank" class="link-arrow">Solicitar proteção <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="prot-card reveal-up">
+              <div class="prot-card__icon">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <div class="prot-card__content">
+                <h3>Manutenção Especializada</h3>
+                <p class="prot-card__desc">
+                  Um jardim extraordinário exige cuidados contínuos.<br/><br/>Nossa equipe realiza visitas periódicas para preservar a saúde, a beleza e o desenvolvimento adequado do seu paisagismo.
+                </p>
+                <ul class="prot-card__benefits">
+                  <li><i class="fa-solid fa-check"></i> Poda técnica</li>
+                  <li><i class="fa-solid fa-check"></i> Adubação especializada</li>
+                  <li><i class="fa-solid fa-check"></i> Monitoramento contínuo</li>
+                  <li><i class="fa-solid fa-check"></i> Jardim sempre impecável</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=5511961880078&text=Ol%C3%A1%21+Vim+pelo+site+e+tenho+interesse+na+Manuten%C3%A7%C3%A3o+Especializada." target="_blank" class="link-arrow">Solicitar manutenção <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="protection__banner reveal-up">
+            <h3 class="protection__banner-title">"Morreu? A Greensy repõe."</h3>
+            <p class="protection__banner-desc">Porque um jardim de alto padrão merece o mesmo cuidado e proteção que qualquer outro grande investimento.</p>
+          </div>
+
+          <div class="protection__cta reveal-up">
+            <h3 class="light">Proteja o seu jardim hoje</h3>
+            <p class="body-text light">Escolha entre manutenção especializada ou proteção Greensy e tenha a tranquilidade de saber que seu paisagismo continuará bonito por muitos anos.</p>
+            <a href="#contact" class="btn-wpp magnetic">
+              Solicitar consultoria <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <div class="protection__cta-quote">
+              "Seu carro tem seguro. Sua casa tem seguro. Por que seu jardim não teria?"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================
      CEO SECTION
 ===================================================== -->
-<section class="ceo section section--dark" id="ceo">
-  <div class="ceo__noise"></div>
-  <div class="container">
-    <div class="ceo__grid">
+      <section class="ceo section section--dark" id="ceo">
+        <div class="ceo__noise"></div>
+        <div class="container">
+          <div class="ceo__grid">
+            <!-- Image -->
+            <div class="ceo__img-col">
+              <div class="ceo__img-frame" id="ceo-img">
+                <img
+                  src="img/ceo.jpeg"
+                  alt="Antônio Costa — Fundador Greensy"
+                />
+                <div class="ceo__img-label">
+                  <span class="ceo__img-year">Est. 2006</span>
+                </div>
+              </div>
+              <div class="ceo__quote-card" id="ceo-quote">
+                <p>"Detalhe é filosofia,<br />não acabamento."</p>
+              </div>
+            </div>
 
-      <!-- Image -->
-      <div class="ceo__img-col">
-        <div class="ceo__img-frame" id="ceo-img">
-          <img src="img/ceo.jpeg" alt="Antônio Costa — Fundador Greensy" />
-          <div class="ceo__img-label">
-            <span class="ceo__img-year">Est. 2006</span>
+            <!-- Text -->
+            <div class="ceo__text-col">
+              <p class="tag-line light reveal-up">/ O Fundador</p>
+              <h2 class="light reveal-up">Antônio<br />Costa</h2>
+
+              <div class="ceo__credentials reveal-up">
+                <span><i class="fa fa-award"></i> 20 Anos de Legado</span>
+                <span
+                  ><i class="fa fa-seedling"></i> +350 Projetos de
+                  Paisagismo</span
+                >
+                <span
+                  ><i class="fa fa-layer-group"></i> Also CEO · Mobiano</span
+                >
+              </div>
+
+              <p class="body-text light reveal-up">
+                Desde 2006, Antônio Costa constrói um pensamento que vai além do
+                projeto. Para ele, jardim não é paisagem — é palco de vida. Com
+                a mesma filosofia que revolucionou o design de móveis planejados
+                na Mobiano, Antônio trouxe à Greensy uma abordagem singular:
+                cada espaço externo deve ter a mesma intencionalidade e precisão
+                de um ambiente interno de alto padrão.
+              </p>
+
+              <div class="ceo__valores reveal-up">
+                <div class="valor-item">
+                  <h4>Biofilia</h4>
+                  <p>
+                    Integrar vida vegetal ao cotidiano humano não é luxo, é
+                    necessidade.
+                  </p>
+                </div>
+                <div class="valor-item">
+                  <h4>Precisão</h4>
+                  <p>
+                    Cada millímetro de um jardim Greensy carrega intenção e
+                    significado.
+                  </p>
+                </div>
+                <div class="valor-item">
+                  <h4>Legado</h4>
+                  <p>
+                    Criamos jardins que crescem por décadas, não projetos de
+                    curta vida.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://www.instagram.com/greensypaisagismo/"
+                target="_blank"
+                class="link-arrow light reveal-up"
+              >
+                <i class="fab fa-instagram"></i> @greensypaisagismo
+              </a>
+            </div>
           </div>
         </div>
-        <div class="ceo__quote-card" id="ceo-quote">
-          <p>"Detalhe é filosofia,<br>não acabamento."</p>
-        </div>
-      </div>
+      </section>
 
-      <!-- Text -->
-      <div class="ceo__text-col">
-        <p class="tag-line light reveal-up">/ O Fundador</p>
-        <h2 class="light reveal-up">Antônio<br>Costa</h2>
-
-        <div class="ceo__credentials reveal-up">
-          <span><i class="fa fa-award"></i> 20 Anos de Legado</span>
-          <span><i class="fa fa-seedling"></i> +350 Projetos de Paisagismo</span>
-          <span><i class="fa fa-layer-group"></i> Also CEO · Mobiano</span>
-        </div>
-
-        <p class="body-text light reveal-up">
-          Desde 2006, Antônio Costa constrói um pensamento que vai além do projeto. Para ele, jardim não é paisagem — é palco de vida. Com a mesma filosofia que revolucionou o design de móveis planejados na Mobiano, Antônio trouxe à Greensy uma abordagem singular: cada espaço externo deve ter a mesma intencionalidade e precisão de um ambiente interno de alto padrão.
-        </p>
-       
-
-        <div class="ceo__valores reveal-up">
-          <div class="valor-item">
-            <h4>Biofilia</h4>
-            <p>Integrar vida vegetal ao cotidiano humano não é luxo, é necessidade.</p>
-          </div>
-          <div class="valor-item">
-            <h4>Precisão</h4>
-            <p>Cada millímetro de um jardim Greensy carrega intenção e significado.</p>
-          </div>
-          <div class="valor-item">
-            <h4>Legado</h4>
-            <p>Criamos jardins que crescem por décadas, não projetos de curta vida.</p>
-          </div>
-        </div>
-
-        <a href="https://www.instagram.com/greensypaisagismo/" target="_blank" class="link-arrow light reveal-up">
-          <i class="fab fa-instagram"></i> @greensypaisagismo
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ====================================================
+      <!-- ====================================================
      TESTIMONIALS
 ===================================================== -->
-<section class="testimonials section" id="testimonials">
-  <div class="container">
-    <div class="test-header">
-      <p class="tag-line reveal-up">/ Depoimentos</p>
-      <h2 class="reveal-up">O que dizem <em class="it">nossos clientes.</em></h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card reveal-up">
-        <div class="test-stars">★★★★★</div>
-        <p>"A Greensy não apenas criou o meu jardim — criou o espaço onde minha família vive seus melhores momentos. Uma experiência transformadora do início ao fim."</p>
-        <div class="test-author">
-          <div class="test-ava">A</div>
-          <div>
-            <strong>Ana Beatriz Lima</strong>
-            <span>Residência · Vila Madalena, SP</span>
+      <section class="testimonials section" id="testimonials">
+        <div class="container">
+          <div class="test-header">
+            <p class="tag-line reveal-up">/ Depoimentos</p>
+            <h2 class="reveal-up">
+              O que dizem <em class="it">nossos clientes.</em>
+            </h2>
+          </div>
+          <div class="test-grid">
+            <div class="test-card reveal-up">
+              <div class="test-stars">★★★★★</div>
+              <p>
+                "A Greensy não apenas criou o meu jardim — criou o espaço onde
+                minha família vive seus melhores momentos. Uma experiência
+                transformadora do início ao fim."
+              </p>
+              <div class="test-author">
+                <div class="test-ava">A</div>
+                <div>
+                  <strong>Ana Beatriz Lima</strong>
+                  <span>Residência · Vila Madalena, SP</span>
+                </div>
+              </div>
+            </div>
+            <div class="test-card reveal-up">
+              <div class="test-stars">★★★★★</div>
+              <p>
+                "Profissionalismo absoluto. O projeto 3D nos deu total
+                segurança, e o resultado superou qualquer expectativa. Antônio e
+                sua equipe são verdadeiros artistas."
+              </p>
+              <div class="test-author">
+                <div class="test-ava">R</div>
+                <div>
+                  <strong>Rafael & Camila Santos</strong>
+                  <span>Casa · Jardins, São Paulo</span>
+                </div>
+              </div>
+            </div>
+            <div class="test-card reveal-up">
+              <div class="test-stars">★★★★★</div>
+              <p>
+                "Implantamos a Greensy na nossa sede e o impacto foi imediato. O
+                ambiente ficou completamente diferente — e nossos colaboradores
+                notaram desde o primeiro dia."
+              </p>
+              <div class="test-author">
+                <div class="test-ava">M</div>
+                <div>
+                  <strong>Mariana Costa</strong>
+                  <span>CEO · Empresa no Itaim Bibi, SP</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="test-card reveal-up">
-        <div class="test-stars">★★★★★</div>
-        <p>"Profissionalismo absoluto. O projeto 3D nos deu total segurança, e o resultado superou qualquer expectativa. Antônio e sua equipe são verdadeiros artistas."</p>
-        <div class="test-author">
-          <div class="test-ava">R</div>
-          <div>
-            <strong>Rafael & Camila Santos</strong>
-            <span>Casa · Jardins, São Paulo</span>
-          </div>
-        </div>
-      </div>
-      <div class="test-card reveal-up">
-        <div class="test-stars">★★★★★</div>
-        <p>"Implantamos a Greensy na nossa sede e o impacto foi imediato. O ambiente ficou completamente diferente — e nossos colaboradores notaram desde o primeiro dia."</p>
-        <div class="test-author">
-          <div class="test-ava">M</div>
-          <div>
-            <strong>Mariana Costa</strong>
-            <span>CEO · Empresa no Itaim Bibi, SP</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-
-<!-- ====================================================
+      <!-- ====================================================
      BIG CTA
 ===================================================== -->
-<section class="bigcta" id="contact">
-  <div class="bigcta__bg" id="bigcta-bg">
-    <video autoplay loop muted playsinline preload="metadata" class="bigcta__video">
-      <source src="videos/video-footer.mp4" type="video/mp4" />
-    </video>
-    <div class="bigcta__veil"></div>
-  </div>
-  <div class="bigcta__content">
-    <p class="tag-line light reveal-up">/ SEU PROJETO COMEÇA AQUI</p>
-    <h2 class="light reveal-up">Pronto para viver<br><em class="it">rodeado de beleza?</em></h2>
-    <p class="body-text light reveal-up" style="max-width: 500px; margin: 0 auto 2.5rem;">
-      Transforme áreas externas, jardins e espaços verdes em ambientes de contemplação, bem-estar e puro alto padrão.
-    </p>
-    <div class="bigcta__acts reveal-up">
-      <a href="https://api.whatsapp.com/send/?phone=5511961880078" class="btn-wpp magnetic">
-        Falar no WhatsApp <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="mailto:contato@greensy.com.br" class="btn-ghost">
-        Enviar e-mail <i class="fa fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-</section>
+      <section class="bigcta" id="contact">
+        <div class="bigcta__bg" id="bigcta-bg">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            class="bigcta__video"
+          >
+            <source src="videos/video-footer.mp4" type="video/mp4" />
+          </video>
+          <div class="bigcta__veil"></div>
+        </div>
+        <div class="bigcta__content">
+          <p class="tag-line light reveal-up">/ SEU PROJETO COMEÇA AQUI</p>
+          <h2 class="light reveal-up">
+            Pronto para viver<br /><em class="it">rodeado de beleza?</em>
+          </h2>
+          <p
+            class="body-text light reveal-up"
+            style="max-width: 500px; margin: 0 auto 2.5rem"
+          >
+            Transforme áreas externas, jardins e espaços verdes em ambientes de
+            contemplação, bem-estar e puro alto padrão.
+          </p>
+          <div class="bigcta__acts reveal-up">
+            <a
+              href="https://api.whatsapp.com/send/?phone=5511961880078"
+              class="btn-wpp magnetic"
+            >
+              Falar no WhatsApp <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:contato@greensy.com.br" class="btn-ghost">
+              Enviar e-mail <i class="fa fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
 
-</main>
-
-
-<!-- ====================================================
+    <!-- ====================================================
      FOOTER
 ===================================================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <h3>Greensy</h3>
-        <p>Paisagismo de alto padrão assinado por<br>Antonio Costa desde 2006.</p>
-        <div class="footer__social">
-          <a href="https://www.instagram.com/greensypaisagismo/" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://api.whatsapp.com/send/?phone=5511961880078"><i class="fab fa-whatsapp"></i></a>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <h3>Greensy</h3>
+            <p>
+              Paisagismo de alto padrão assinado por<br />Antonio Costa desde
+              2006.
+            </p>
+            <div class="footer__social">
+              <a
+                href="https://www.instagram.com/greensypaisagismo/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://api.whatsapp.com/send/?phone=5511961880078"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer__col">
+            <h4>Serviços</h4>
+            <a href="#">Projeto Conceitual</a>
+            <a href="#">Jardins Residenciais</a>
+            <a href="#">Terraços & Green Roofs</a>
+            <a href="#">Paisagismo Corporativo</a>
+            <a href="#">Manutenção Premium</a>
+          </div>
+          <div class="footer__col">
+            <h4>Empresa</h4>
+            <a href="#about">Sobre a Greensy</a>
+            <a href="#ceo">O Fundador</a>
+            <a href="#projects">Portfólio</a>
+            <a href="https://mobiano.com.br" target="_blank"
+              >Mobiano (Marca Irmã)</a
+            >
+          </div>
+          <div class="footer__col">
+            <h4>Contato</h4>
+            <p>Av. Faria Lima, 4440<br />Itaim Bibi, São Paulo – SP</p>
+
+            <a href="mailto:contato@greensy.com.br">contato@greensy.com.br</a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>© 2025 Greensy Paisagismo. Todos os direitos reservados.</span>
+          <span>Fundado por Antonio Costa</span>
         </div>
       </div>
-      <div class="footer__col">
-        <h4>Serviços</h4>
-        <a href="#">Projeto Conceitual</a>
-        <a href="#">Jardins Residenciais</a>
-        <a href="#">Terraços & Green Roofs</a>
-        <a href="#">Paisagismo Corporativo</a>
-        <a href="#">Manutenção Premium</a>
-      </div>
-      <div class="footer__col">
-        <h4>Empresa</h4>
-        <a href="#about">Sobre a Greensy</a>
-        <a href="#ceo">O Fundador</a>
-        <a href="#projects">Portfólio</a>
-        <a href="https://mobiano.com.br" target="_blank">Mobiano (Marca Irmã)</a>
-      </div>
-      <div class="footer__col">
-        <h4>Contato</h4>
-        <p>Av. Faria Lima, 4440<br>Itaim Bibi, São Paulo – SP</p>
-  
-        <a href="mailto:contato@greensy.com.br">contato@greensy.com.br</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© 2025 Greensy Paisagismo. Todos os direitos reservados.</span>
-      <span>Fundado por Antonio Costa</span>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<!-- WhatsApp float -->
-<a href="https://api.whatsapp.com/send/?phone=5511961880078" class="wpp-float magnetic" id="wpp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
+    <!-- WhatsApp float -->
+    <a
+      href="https://api.whatsapp.com/send/?phone=5511961880078"
+      class="wpp-float magnetic"
+      id="wpp-float"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-<!-- Scripts — carregados no final para não bloquear render -->
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="script.js" defer></script>
-</body>
+    <!-- Scripts — carregados no final para não bloquear render -->
+    <script
+      src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+  </body>
 </html>
-
-
