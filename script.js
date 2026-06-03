@@ -118,8 +118,13 @@ function initHeroAnim() {
 
   const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-  // Eyebrow
-  tl.fromTo('#hero-eye', { y: 20, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 0.4);
+  // Live Badge Expand Sequence
+  const badge = document.getElementById('hero-badge');
+  if(badge) {
+    tl.fromTo(badge, { y: 20, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 0.4);
+    tl.add(() => badge.classList.add('expanded'), 1.2);
+    tl.add(() => badge.classList.remove('expanded'), 5.0);
+  }
 
   // Lines stagger
   tl.to('.hero__heading .reveal-line span', {
