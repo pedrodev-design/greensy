@@ -138,6 +138,11 @@ function initHeroAnim() {
 
   // Stats bar
   tl.fromTo('#hero-stats', { y: 30, opacity: 0 }, { opacity: 1, y: 0, duration: 1 }, 1.6);
+
+  // Trigger popup smoothly after hero animations settle
+  setTimeout(() => {
+    if (window.showPremiumPopup) window.showPremiumPopup();
+  }, 1800);
 }
 
 
@@ -279,3 +284,31 @@ document.getElementById('logo-home')?.addEventListener('click', e => {
 })();
 
 console.log('%c🌿 Greensy Paisagismo — Ultra Premium', 'font-size:13px;color:#B8965A;font-weight:500');
+
+// ─── POPUP MODAL ─────────────────────────────────────────────
+(function() {
+  const overlay = document.getElementById('popup-overlay');
+  const closeBtn = document.getElementById('popup-close');
+  const link = document.getElementById('popup-link');
+  
+  if (!overlay || !closeBtn || !link) return;
+
+  function closePopup() {
+    overlay.classList.remove('active');
+  }
+
+  window.showPremiumPopup = function() {
+    overlay.classList.add('active');
+  };
+
+  closeBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closePopup();
+    }
+  });
+
+  link.addEventListener('click', () => {
+    closePopup();
+  });
+})();
