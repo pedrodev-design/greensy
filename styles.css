@@ -63,7 +63,7 @@ a{text-decoration:none;color:inherit}
 /* ── LOADER ── */
 .loader{
   position:fixed;inset:0;z-index:9999;
-  background:var(--forest);
+  background:#ffffff;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
@@ -86,10 +86,10 @@ a{text-decoration:none;color:inherit}
   background:var(--gold);transition:width 1.6s var(--ease);
 }
 .loader__pct{
-  font-size:.7rem;letter-spacing:.2em;color:rgba(255,255,255,.35);
+  font-size:.7rem;letter-spacing:.2em;color:var(--gold);
 }
 .loader__panel{
-  position:absolute;left:0;right:0;height:50%;background:var(--forest);
+  position:absolute;left:0;right:0;height:50%;background:#ffffff;
   transition:transform 1.2s var(--ease);
 }
 .loader__panel--top{top:0;transform-origin:top}
@@ -613,9 +613,9 @@ h2{
 }
 
 .clients-strip__logo img {
-  height: 38px;
+  height: 60px;
   width: auto;
-  max-width: 160px;
+  max-width: 240px;
   object-fit: contain;
   filter: grayscale(100%) opacity(0.4);
   transition: filter 0.5s var(--ease), opacity 0.5s var(--ease);
@@ -624,6 +624,13 @@ h2{
 
 .clients-strip__logo:hover img {
   filter: grayscale(0%) opacity(1);
+}
+
+/* Aumenta tamanho de C6 Bank e Carrefour */
+.clients-strip__logo img[src*="c6-bank"],
+.clients-strip__logo img[src*="carrefour"] {
+  height: 90px;
+  max-width: 300px;
 }
 
 .clients-strip__sep { display: none; }
@@ -1815,7 +1822,9 @@ h2{
   /* Clients */
   .clients-strip { padding: 2.5rem 0; }
   .clients-strip__track { gap: 3rem; padding-right: 3rem; }
-  .clients-strip__logo img { height: 28px; max-width: 120px; }
+  .clients-strip__logo img { height: 45px; max-width: 180px; }
+  .clients-strip__logo img[src*="c6-bank"],
+  .clients-strip__logo img[src*="carrefour"] { height: 68px; max-width: 225px; }
   
   /* Care */
   .care-card__media { aspect-ratio: 1/1; }
