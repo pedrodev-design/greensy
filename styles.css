@@ -191,7 +191,7 @@ h2{
 .header__btn{
   flex-shrink:0;display:inline-flex;align-items:center;gap:.6rem;
   padding:.65rem 1.4rem;border-radius:var(--r-pill);
-  background:var(--forest);color:var(--cream);
+  background:var(--forest);color:#ffffff;
   font-size:.72rem;font-weight:500;letter-spacing:.07em;
   transition:background .3s ease,transform .3s ease,box-shadow .3s ease;
   white-space:nowrap;
@@ -615,7 +615,7 @@ h2{
 .clients-strip__logo img {
   height: 60px;
   width: auto;
-  max-width: 240px;
+  max-width: 200px;
   object-fit: contain;
   filter: grayscale(100%) opacity(0.4);
   transition: filter 0.5s var(--ease), opacity 0.5s var(--ease);
@@ -626,11 +626,15 @@ h2{
   filter: grayscale(0%) opacity(1);
 }
 
-/* Aumenta tamanho de C6 Bank e Carrefour */
-.clients-strip__logo img[src*="c6-bank"],
+/* Aumenta um pouco C6 Bank e Carrefour */
 .clients-strip__logo img[src*="carrefour"] {
-  height: 90px;
-  max-width: 300px;
+  height: 95px;
+  max-width: 240px;
+}
+
+.clients-strip__logo img[src*="c6-bank"] {
+  height: 95px;
+  max-width: 240px;
 }
 
 .clients-strip__sep { display: none; }
@@ -1606,6 +1610,18 @@ h2{
   margin-bottom: 2rem;
   transition: transform 0.5s var(--ease), background 0.5s ease, color 0.5s ease;
 }
+.prot-card:first-child {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.prot-card:first-child::before {
+  transform: scaleX(1);
+}
+.prot-card:first-child .prot-card__icon {
+  transform: scale(1.1);
+  background: var(--gold);
+  color: var(--white);
+}
 .prot-card:hover .prot-card__icon {
   transform: scale(1.1);
   background: var(--gold);
@@ -1822,9 +1838,9 @@ h2{
   /* Clients */
   .clients-strip { padding: 2.5rem 0; }
   .clients-strip__track { gap: 3rem; padding-right: 3rem; }
-  .clients-strip__logo img { height: 45px; max-width: 180px; }
-  .clients-strip__logo img[src*="c6-bank"],
-  .clients-strip__logo img[src*="carrefour"] { height: 68px; max-width: 225px; }
+  .clients-strip__logo img { height: 45px; max-width: 160px; }
+  .clients-strip__logo img[src*="carrefour"] { height: 56px; max-width: 200px; }
+  .clients-strip__logo img[src*="c6-bank"] { height: 65px; max-width: 200px; }
   
   /* Care */
   .care-card__media { aspect-ratio: 1/1; }
